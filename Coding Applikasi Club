@@ -1,0 +1,317 @@
+package main
+
+import "fmt"
+
+type Pemain struct{
+	Nama string
+	Umur int
+	Posisi string
+	Nomor int
+	Kategori_Tim string
+}
+
+type Klub struct{
+	Nama_Klub string
+	Nama_Stadion string
+	Manager string
+	Data_Pemain[100] Pemain
+	Pelatih[100] string
+	count_player int
+	count_coach int 
+}
+
+func main(){
+	var A[100] Klub
+	var s string
+	var t,u,v,s1,n,n1,v1 int
+	fmt.Print("\n-----------------------------------------")
+	fmt.Print("\n Admin Login [Pass Gunakan tanggal Lahir]")
+	fmt.Print("\n-----------------------------------------")
+	fmt.Print("\n")
+	fmt.Print("\n Admin 	: ", " ")
+	fmt.Scan(&s)
+	fmt.Print("\n Password	: ", " ")
+	fmt.Scan(&t)
+	fmt.Print("\n")
+	fmt.Print("\n Login Success , Welcome ",s)
+	fmt.Print("\n")
+	fmt.Print("\n Input Data : ")
+	fmt.Print("\n")
+	s = "yes"
+	t = 0
+	for( s == "yes" || s == "y"){
+		fmt.Print("\n Input Nama Klub 	 : "," ")
+		fmt.Scan(&A[t].Nama_Klub)
+		fmt.Print("\n Input Nama Stadion : ", " ")
+		fmt.Scan(&A[t].Nama_Stadion)
+		fmt.Print("\n Input Nama Manager : ", " ")
+		fmt.Scan(&A[t].Manager)
+		fmt.Print("\n")
+		fmt.Print("\n|| Input Pemain ||")
+		s = "yes"
+		u = 0
+		for(s == "yes" || s == "y"){
+			fmt.Print("\n Nama Pemain : "," ")
+			fmt.Scan(&A[t].Data_Pemain[u].Nama)
+			fmt.Print("\n Umur        :"," ")
+			fmt.Scan(&A[t].Data_Pemain[u].Umur)
+			fmt.Print("\n Posisi      :"," ")
+			fmt.Scan(&A[t].Data_Pemain[u].Posisi)
+			fmt.Print("\n Nomor       :"," ")
+			fmt.Scan(&A[t].Data_Pemain[u].Nomor)
+			fmt.Print("\n Kategori_Tim:"," ")
+			fmt.Scan(&A[t].Data_Pemain[u].Kategori_Tim)
+			u = u + 1
+			A[t].count_player = u
+			fmt.Print("\nInput Pemain "," ",A[t].Nama_Klub," ","lagi ? y/else :"," ")
+			fmt.Scan(&s)
+		}
+		fmt.Print("\n|| Input Pelatih ||")
+		s = "yes"
+		v = 0
+		for(s == "yes" || s == "y"){
+			fmt.Print("\n Input Nama Pelatih "," ", v + 1," : "," ")
+			fmt.Scan(&A[t].Pelatih[v])
+			v = v + 1
+			A[t].count_coach = v
+			fmt.Print("\n Again ? y/else :"," ")
+			fmt.Scan(&s)
+		}
+		t = t + 1
+		fmt.Print("\n")
+		fmt.Print("\n Lanjut Input Club ? yes/else : "," ")
+		fmt.Scan(&s)
+	}
+	fmt.Print("\n -------------------------------------------------")
+	fmt.Print("\n")
+	Daftar_Pemain(A,t)
+	s = "y"
+	for(s == "y"){
+		fmt.Print("\n<><><><><><><><<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>")
+		fmt.Print("\n=                                                                                         =")
+		fmt.Print("\n=                              			-FIFA-                          			   =")
+		fmt.Print("\n=                      Federation Internationale de Football Association                  =")
+		fmt.Print("\n=                                                                                         =")
+		fmt.Print("\n<><><><><><><><><><><<><><>><><><><><><><><><><><><><><><><<><><><><><><><><><><><><><><><>")
+		fmt.Print("\n")
+		fmt.Print("\n|| 1. Input 1 for add club      ||")
+		fmt.Print("\n|| 2. Input 2 for delete Club   ||")
+		fmt.Print("\n|| 3. Input 3 for find player   ||")
+		fmt.Print("\n|| 4. Input 4 for sort by age   ||")
+		fmt.Print("\n")
+		fmt.Print("\nInput Option  : "," ")
+		fmt.Scan(&s1)
+		if(s1 == 1){
+			s = "yes"
+			for( s == "yes" || s == "y"){
+				fmt.Print("\n Input Nama Klub 	 : "," ")
+				fmt.Scan(&A[t].Nama_Klub)
+				fmt.Print("\n Input Nama Stadion : ", " ")
+				fmt.Scan(&A[t].Nama_Stadion)
+				fmt.Print("\n Input Nama Manager : ", " ")
+				fmt.Scan(&A[t].Manager)
+				fmt.Print("\n")
+				fmt.Print("\n|| Input Pemain ||")
+				s = "yes"
+				u = 0
+				for(s == "yes" || s == "y"){
+					fmt.Print("\n Nama Pemain : "," ")
+					fmt.Scan(&A[t].Data_Pemain[u].Nama)
+					fmt.Print("\n Umur        :"," ")
+					fmt.Scan(&A[t].Data_Pemain[u].Umur)
+					fmt.Print("\n Posisi      :"," ")
+					fmt.Scan(&A[t].Data_Pemain[u].Posisi)
+					fmt.Print("\n Nomor       :"," ")
+					fmt.Scan(&A[t].Data_Pemain[u].Nomor)
+					fmt.Print("\n Kategori_Tim:"," ")
+					fmt.Scan(&A[t].Data_Pemain[u].Kategori_Tim)
+					u = u + 1
+					A[t].count_player = u
+					fmt.Print("\n Input Pemain "," ",A[t].Nama_Klub," ","lagi ? y/else :"," ")
+					fmt.Scan(&s)
+				}	
+				fmt.Print("\n|| Input Pelatih ||")
+				s = "yes"
+				v = 0
+				for(s == "yes" || s == "y"){
+					fmt.Print("\n Input Nama Pelatih "," ", v + 1," : "," ")
+					fmt.Scan(&A[t].Pelatih[v])
+					v = v + 1
+					A[t].count_coach = v
+					fmt.Print("\n Again ? y/else :"," ")
+					fmt.Scan(&s)
+				}
+				t = t + 1
+				fmt.Print("\n")
+				fmt.Print("\n Lanjut Input Club ? yes/else : "," ")
+				fmt.Scan(&s)
+			}
+			Daftar_Pemain(A,t)
+		}else if(s1 == 2){
+			fmt.Print("\n Input Club yang Ingin dihapus : ", " ")
+			fmt.Scan(&s)
+			n = 0
+			for(A[n].Nama_Klub != s && n < t){
+				n = n + 1
+			}
+			if(A[n].Nama_Klub == s){
+				fmt.Print("\n Data Berhasil dihapus")
+				for(n < t){
+					A[n].Nama_Klub = A[n+1].Nama_Klub
+					A[n].Nama_Stadion = A[n+1].Nama_Stadion
+					A[n].Manager = A[n+1].Manager
+					n1 = 0
+					for(n1 < 5){
+						A[n].Data_Pemain[n1].Nama = A[n+1].Data_Pemain[n1].Nama
+						A[n].Data_Pemain[n1].Umur = A[n+1].Data_Pemain[n1].Umur
+						A[n].Data_Pemain[n1].Posisi = A[n+1].Data_Pemain[n1].Posisi
+						A[n].Data_Pemain[n1].Nomor = A[n+1].Data_Pemain[n1].Nomor
+						A[n].Data_Pemain[n1].Kategori_Tim = A[n+1].Data_Pemain[n1].Kategori_Tim
+						n1 = n1 + 1
+					}
+					v1 = 0
+					for(v1 < 5){
+						A[n].Pelatih[v1] = A[n+1].Pelatih[v1]
+						v1 = v1 + 1
+					}
+					n = n + 1
+				}
+				t = t - 1
+				Daftar_Pemain(A,t)
+			}else{
+				fmt.Print("\n Data Not Found")
+			}
+		}else if(s1 == 3){
+			Cari_Player(A,t)
+		}else if(s1 == 4){
+			Sort(A,t)
+		}
+		fmt.Print("\n Jalankan ulang program ? : y/otherwise : "," ")
+		fmt.Scan(&s)
+	}
+}
+func Sort(A[100] Klub, t int){
+	var c, i, j, idxmax, x1, y1 int
+	var place Pemain
+	c = 0
+	for(c < t){
+		i = 0
+		for(i < A[c].count_player){
+			j = i
+			idxmax = i
+			for(j < A[c].count_player){
+				if(A[c].Data_Pemain[idxmax].Umur > A[c].Data_Pemain[j].Umur){
+					idxmax = j
+				}
+				j = j + 1
+			}
+			place.Nama = A[c].Data_Pemain[idxmax].Nama
+			place.Umur = A[c].Data_Pemain[idxmax].Umur
+			place.Posisi = A[c].Data_Pemain[idxmax].Posisi
+			place.Nomor = A[c].Data_Pemain[idxmax].Nomor
+			place.Kategori_Tim = A[c].Data_Pemain[idxmax].Kategori_Tim
+			A[c].Data_Pemain[idxmax].Nama = A[c].Data_Pemain[i].Nama 
+			A[c].Data_Pemain[idxmax].Umur = A[c].Data_Pemain[i].Umur
+			A[c].Data_Pemain[idxmax].Posisi = A[c].Data_Pemain[i].Posisi
+			A[c].Data_Pemain[idxmax].Nomor = A[c].Data_Pemain[i].Nomor
+			A[c].Data_Pemain[idxmax].Kategori_Tim = A[c].Data_Pemain[i].Kategori_Tim
+			A[c].Data_Pemain[i].Nama = place.Nama 
+			A[c].Data_Pemain[i].Umur = place.Umur
+			A[c].Data_Pemain[i].Posisi = place.Posisi
+			A[c].Data_Pemain[i].Nomor = place.Nomor
+			A[c].Data_Pemain[i].Kategori_Tim = place.Kategori_Tim
+			i = i + 1
+		}
+		c = c + 1
+	}
+	x1 = 0
+	y1 = 0 
+	for(x1 <= t-1){
+		fmt.Print("\n Club Name 	  : ", " ", A[x1].Nama_Klub)
+		fmt.Print("\n Stadion Location : ", " ", A[x1].Nama_Stadion)
+		fmt.Print("\n Manager Name     : ", " ", A[x1].Manager)
+		fmt.Print("\n --------Player List----------")
+		y1 = 0
+		for(y1 < A[x1].count_player){
+			fmt.Print("\n Name 	  : ", " ",A[x1].Data_Pemain[y1].Nama)
+			fmt.Print("\n Age  	  : ", " ",A[x1].Data_Pemain[y1].Umur)
+			fmt.Print("\n Position : ", " ",A[x1].Data_Pemain[y1].Posisi)
+			fmt.Print("\n Number   : ", " ",A[x1].Data_Pemain[y1].Nomor)
+			fmt.Print("\n Team Category : ", " ",A[x1].Data_Pemain[y1].Kategori_Tim)
+			fmt.Print("\n")
+			y1 = y1 + 1
+		}
+		fmt.Print("\n --------Coach List----------")
+		y1 = 0 
+		for(y1 < A[x1].count_coach){
+			fmt.Print("\n Coach "," ", y1 + 1, " : ", " ",A[x1].Pelatih[y1])
+			y1 = y1 + 1
+		}
+		fmt.Print("\n")
+		fmt.Print("\n -------------------------------------------------")
+		x1 = x1 + 1
+	}
+}
+func Daftar_Pemain(A[100] Klub, t int){
+	var x, y int
+	x = 0
+	y = 0 
+	for(x < t){
+		fmt.Print("\n Club Name 	   : ", " ", A[x].Nama_Klub)
+		fmt.Print("\n Stadion Location  : ", " ", A[x].Nama_Stadion)
+		fmt.Print("\n Manager Name      : ", " ", A[x].Manager)
+		fmt.Print("\n --------Player List----------")
+		y = 0
+		for(y < A[x].count_player){
+			fmt.Print("\n Name 	       : ",A[x].Data_Pemain[y].Nama)
+			fmt.Print("\n Age  	       : ",A[x].Data_Pemain[y].Umur)
+			fmt.Print("\n Position      : ",A[x].Data_Pemain[y].Posisi)
+			fmt.Print("\n Number        : ",A[x].Data_Pemain[y].Nomor)
+			fmt.Print("\n Team Category : ",A[x].Data_Pemain[y].Kategori_Tim)
+			fmt.Print("\n")
+			y = y + 1
+		}
+		fmt.Print("\n --------Coach List----------")
+		y = 0 
+		for(y < A[x].count_coach){
+			fmt.Print("\n Coach "," ", y + 1, " : ", " ",A[x].Pelatih[y])
+			y = y + 1
+		}
+		fmt.Print("\n")
+		fmt.Print("\n -------------------------------------------------")
+		x = x + 1
+	}
+}
+func Cari_Player(A[100] Klub, t int){
+	var a,b int
+	var q string
+	fmt.Print("\n----------------------------------")
+	fmt.Print("\n          Find_Player ?           ")
+	fmt.Print("\n----------------------------------")
+	fmt.Print("\n")
+	fmt.Print("\nInput Player  : "," ")
+	fmt.Scan(&q)
+	a = 0
+	for(a < t){
+		b = 0
+		for(A[a].Data_Pemain[b].Nama != q && b < A[a].count_player){
+			b = b + 1
+		}
+		if(A[a].Data_Pemain[b].Nama == q){
+			fmt.Print("\n")
+			fmt.Print("\nPlayer Ditemukan ")
+			fmt.Print("\n")
+			fmt.Print("\n Club Name 	  : ", " ", A[a].Nama_Klub)
+			fmt.Print("\n Stadion Location : ", " ", A[a].Nama_Stadion)
+			fmt.Print("\n Manager Name     : ", " ", A[a].Manager)
+			fmt.Print("\n --------Player Data----------")
+			fmt.Print("\n")
+			fmt.Print("\n Name 	          : ", " ",A[a].Data_Pemain[b].Nama)
+			fmt.Print("\n Age  	          : ", " ",A[a].Data_Pemain[b].Umur)
+			fmt.Print("\n Position         : ", " ",A[a].Data_Pemain[b].Posisi)
+			fmt.Print("\n Number           : ", " ",A[a].Data_Pemain[b].Nomor)
+			fmt.Print("\n Team Category    : ", " ",A[a].Data_Pemain[b].Kategori_Tim)
+		}
+		a = a + 1
+	}
+}
